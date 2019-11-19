@@ -1,17 +1,10 @@
+import model.Notice
+import model.NoticeDisplay
 import kotlin.test.assertEquals
 
 /**
  * @author fpdjsns
  */
-data class Notice(val no: Long,
-                  val title: String,
-                  val content: String)
-
-data class NoticeDisplay(val title: String,
-                         val content: String) {
-  constructor(notice: Notice) : this(notice.title, notice.content)
-}
-
 fun main(args: Array<String>) {
 
   val notice1 = Notice(1, "hello", "hello content")
