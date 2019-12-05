@@ -12,8 +12,10 @@ repositories {
 dependencies {
   implementation(kotlin("stdlib-jdk8"))
 
-  // FIXME test 코드를 src/test 로 옮기고 testImplementation으로 바꿔야 함
-  implementation("org.jetbrains.kotlin:kotlin-test:1.0.6")
+  testImplementation("org.jetbrains.kotlin:kotlin-test:1.0.6")
+
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.3.2")
 }
 
 tasks {
@@ -22,5 +24,11 @@ tasks {
   }
   compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+  }
+}
+
+tasks {
+  test {
+    useJUnitPlatform { excludeEngines("junit-vintage") }
   }
 }
