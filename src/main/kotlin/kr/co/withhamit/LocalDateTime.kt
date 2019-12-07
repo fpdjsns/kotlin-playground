@@ -1,8 +1,8 @@
 package kr.co.withhamit
 
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeFormatterBuilder
+import java.time.format.DateTimeParseException
 import java.time.temporal.ChronoField
 
 /**
@@ -11,10 +11,14 @@ import java.time.temporal.ChronoField
 fun String.toLocalDateTime(): LocalDateTime? {
   if (this.isNullOrBlank()) return null
 
-  val formatter: DateTimeFormatter = DateTimeFormatterBuilder()
-      .appendPattern("yyyy-MM-dd HH:mm[:ss]")
-      .appendFraction(ChronoField.MILLI_OF_SECOND, 0, 9, true)
-      .toFormatter()
+  return try {
+    val formatter = DateTimeFormatterBuilder()
+        .appendPattern("yyyy-MM-dd HH:mm[:ss]")
+        .appendFraction(ChronoField.MILLI_OF_SECOND, 0, 9, true)
+        .toFormatter()
 
-  return LocalDateTime.parse(this, formatter)
+    return LocalDateTime.parse(this, formatter)
+  } catch (e: DateTimeParseException) {
+    null
+  }
 }

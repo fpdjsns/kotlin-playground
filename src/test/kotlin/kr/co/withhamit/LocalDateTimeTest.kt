@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.test.assertNotEquals
+import kotlin.test.assertNull
 
 /**
  * @author Hyunsu Bae
@@ -25,5 +26,7 @@ class LocalDateTimeTest {
         "2019-12-04 12:03:12.1".toLocalDateTime()?.withSecond(0))
     assertEquals(LocalDateTime.of(2019, 12, 4, 12, 3),
         "2019-12-04 12:03:12.1".toLocalDateTime()?.truncatedTo(ChronoUnit.MINUTES))
+
+    assertNull("2019-12-04 12".toLocalDateTime())
   }
 }
