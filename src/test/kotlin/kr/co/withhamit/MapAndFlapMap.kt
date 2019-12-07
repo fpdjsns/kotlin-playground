@@ -1,7 +1,7 @@
-package com.withhamit
+package kr.co.withhamit
 
-import com.withhamit.model.Notice
-import com.withhamit.model.NoticeDisplay
+import kr.co.withhamit.model.Notice
+import kr.co.withhamit.model.NoticeDisplay
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

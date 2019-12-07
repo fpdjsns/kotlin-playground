@@ -1,4 +1,4 @@
-package com.withhamit.model
+package kr.co.withhamit.model
 
 /**
  * @author fpdjsns

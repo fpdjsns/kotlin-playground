@@ -1,4 +1,4 @@
-package com.withhamit
+package kr.co.withhamit
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

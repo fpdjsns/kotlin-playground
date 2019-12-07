@@ -1,7 +1,7 @@
-package com.withhamit
+package kr.co.withhamit
 
-import com.withhamit.model.File
-import com.withhamit.model.Notice
+import kr.co.withhamit.model.File
+import kr.co.withhamit.model.Notice
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -12,7 +12,9 @@ class GroupByTest {
   @Test
   fun test() {
     // given
-    val notices = listOf(Notice(1L, "1", "1"), Notice(2L, "2", "2"), Notice(3L, "3", "3"))
+    val notices = listOf(Notice(1L, "1", "1"),
+        Notice(2L, "2", "2"),
+        Notice(3L, "3", "3"))
     val files = listOf(File(1L, "1", noticeNo = 1),
         File(2L, "2", noticeNo = 1),
         File(3L, "3", noticeNo = 1),
