@@ -1,5 +1,7 @@
-import model.Notice
-import model.NoticeDisplay
+package com.withhamit
+
+import com.withhamit.model.Notice
+import com.withhamit.model.NoticeDisplay
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -18,8 +20,8 @@ class MapAndFlapMap {
     /* map */
     notices.map(Notice::title).let { noticeTitles ->
 
-      println(noticeTitles)
       // [title 1, title 2]
+      println(noticeTitles)
 
       noticeTitles.forEachIndexed { idx, title ->
         assertEquals(notices[idx].title, title)
@@ -28,8 +30,8 @@ class MapAndFlapMap {
 
     notices.map { NoticeDisplay(it) }.let { noticeDisplays ->
 
-      println(noticeDisplays)
       // [NoticeDisplay(title=title 1, content=content 2), NoticeDisplay(title=title 2, content=content 2)]
+      println(noticeDisplays)
 
       noticeDisplays.forEachIndexed { idx, noticeDisplay ->
         assertEquals(NoticeDisplay(notices[idx]), noticeDisplay)
@@ -40,28 +42,21 @@ class MapAndFlapMap {
      * flatMap vs map
      */
     notices.map(Notice::title).let { titleList ->
-      println(titleList)
+
       // [hello, world]
+      println(titleList)
 
-      titleList.map { it.toList() }.let {
-        println(it)
-        // [[h, e, l, l, o], [w, o, r, l, d]]
-      }
+      // [[h, e, l, l, o], [w, o, r, l, d]]
+      println(titleList.map { it.toList() })
 
-      titleList.flatMap { it.toList() }.let {
-        println(it)
-        // [h, e, l, l, o, w, o, r, l, d]
-      }
+      // [h, e, l, l, o, w, o, r, l, d]
+      println(titleList.flatMap { it.toList() })
 
-      titleList.map { listOf(it) }.let {
-        println(it)
-        // [[hello], [world]]
-      }
+      // [[hello], [world]]
+      println(titleList.map { listOf(it) })
 
-      titleList.flatMap { listOf(it) }.let {
-        println(it)
-        // [hello, world]
-      }
+      // [hello, world]
+      println(titleList.flatMap { listOf(it) })
     }
   }
 }

@@ -1,6 +1,8 @@
-import model.File
-import model.Notice
-import model.NoticeWithFiles
+package com.withhamit
+
+import com.withhamit.model.File
+import com.withhamit.model.Notice
+import com.withhamit.model.NoticeWithFiles
 
 /**
  * @author fpdjsns
